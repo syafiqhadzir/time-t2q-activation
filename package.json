@@ -23,7 +23,7 @@
     "test": "npm run cy:run:warmup && npm run cy:run:pipeline"
   },
   "devDependencies": {
-    "cypress": "^15.14.1",
+    "cypress": "^15.17.0",
     "cypress-file-upload": "^5.0.8",
     "pdf-parse": "^2.4.5"
   }
