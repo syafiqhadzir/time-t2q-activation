@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Application source (mounted separately — not part of the test repo)
+time2quote/
+eso-new/
+
+# Cypress artifacts
+cypress/videos/
+cypress/screenshots/
+cypress/downloads/
+
+# Runtime fixture data produced by test runs (never commit live IDs)
+cypress/fixtures/shared-quote-id.json
+cypress/fixtures/cofr-submission.json
+cypress/fixtures/README.md
+
+# Environment / Secrets
+cypress.env.json
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/

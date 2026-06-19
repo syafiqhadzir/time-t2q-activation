@@ -1,0 +1,76 @@
+{
+  "users": {
+    "clientManager": {
+      "username": "sueli",
+      "password": "sueli",
+      "role": "Client Manager"
+    },
+    "costingTeam": {
+      "username": "norakma",
+      "password": "norakma",
+      "role": "Costing Team"
+    },
+    "headOfHBU": {
+      "username": "mzulhaidi",
+      "password": "mzulhaidi",
+      "role": "Head of HBU"
+    },
+    "headOfPricing": {
+      "username": "nfaridahhop",
+      "password": "nfaridahhop",
+      "role": "Head of Pricing"
+    },
+    "pricingTeam": {
+      "username": "amanda",
+      "password": "amanda",
+      "role": "Pricing Team",
+      "assigneeCode": "AMANDA",
+      "fullName": "Amanda Tong Lin Yin"
+    },
+    "headOfSales": {
+      "username": "lmjhos",
+      "password": "lmjhos",
+      "role": "Head of Sales"
+    },
+    "headOfCommercial": {
+      "username": "ltteoceo",
+      "password": "ltteoceo",
+      "role": "Head of Commercial"
+    },
+    "ceo": {
+      "username": "jganeshceo",
+      "password": "jganeshceo",
+      "role": "CEO"
+    }
+  },
+  "customer": {
+    "status": "New",
+    "rowIndex": 2
+  },
+  "quoteBasicDetails": {
+    "currency": "MYR",
+    "billingEntity": "1020 - TT dotCom Sdn Bhd",
+    "contractPeriod": "12",
+    "salesType": "New Sales",
+    "contractTerms": "Monthly",
+    "endOfContract": "No"
+  },
+  "solution": "standard",
+  "products": {
+    "internet": {
+      "bandwidth": "100",
+      "accessType": "ME",
+      "sla": "1",
+      "interfaceType": "25",
+      "handoffInterface": "electrical"
+    }
+  },
+  "site": {
+    "siteAKey": "AKHMW"
+  },
+  "pricing": {
+    "targetPriceARC": "10000",
+    "oneTimeCharge": "1000",
+    "bundledSecurityVas": "1"
+  }
+}

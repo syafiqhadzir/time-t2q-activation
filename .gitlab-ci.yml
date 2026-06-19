@@ -1,0 +1,50 @@
+# CI/CD pipeline for Time2Quote Activation test suite
+#
+# Stages:
+#   test            — SAST static analysis
+#   e2e             — Cypress end-to-end tests against STG2
+#   secret-detection — Secret scanning
+#
+# Security template references:
+#   https://docs.gitlab.com/user/application_security/sast/
+#   https://docs.gitlab.com/user/application_security/secret_detection/
+
+stages:
+  - test
+  - e2e
+  - secret-detection
+
+# ── Security templates ────────────────────────────────────────────────────────
+include:
+  - template: Security/SAST.gitlab-ci.yml
+  - template: Security/Secret-Detection.gitlab-ci.yml
+
+sast:
+  stage: test
+
+secret_detection:
+  stage: secret-detection
+
+variables:
+  SECRET_DETECTION_ENABLED: "true"
+
+# ── Cypress E2E ───────────────────────────────────────────────────────────────
+cypress-e2e:
+  stage: e2e
+  image: node:20
+  # allow_failure: true — staging environment outages must not block MRs.
+  # Remove once a dedicated test environment with guaranteed uptime is provisioned.
+  allow_failure: true
+  before_script:
+    - npm ci --prefer-offline
+  script:
+    # Pre-create all user sessions, then run the full activation pipeline
+    - npm test
+  artifacts:
+    when: always
+    expire_in: 7 days
+    paths:
+      - cypress/videos/
+      - cypress/screenshots/
+  only:
+    - main

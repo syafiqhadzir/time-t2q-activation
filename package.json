@@ -1,0 +1,30 @@
+{
+  "name": "time2quote-activation",
+  "version": "1.0.0",
+  "description": "End-to-end Cypress test suite for the Time2Quote → ESO → CRM → COFR → ATOM activation pipeline",
+  "license": "ISC",
+  "author": "TIME DotCom Berhad",
+  "private": true,
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:run:warmup": "cypress run --spec cypress/e2e/00-session-warmup.cy.js",
+    "cy:run:t2q": "cypress run --spec cypress/e2e/01-t2q.cy.js",
+    "cy:run:eso": "cypress run --spec cypress/e2e/02-eso.cy.js",
+    "cy:run:crm-sales-order": "cypress run --spec cypress/e2e/03-crm-sales-order.cy.js",
+    "cy:run:cofr": "cypress run --spec cypress/e2e/04-cofr.cy.js",
+    "cy:run:crm-verify": "cypress run --spec cypress/e2e/05-crm-verify.cy.js",
+    "cy:run:atom": "cypress run --spec cypress/e2e/06-atom.cy.js",
+    "cy:run:pipeline": "cypress run --spec cypress/e2e/01-t2q.cy.js,cypress/e2e/02-eso.cy.js,cypress/e2e/03-crm-sales-order.cy.js,cypress/e2e/04-cofr.cy.js,cypress/e2e/05-crm-verify.cy.js,cypress/e2e/06-atom.cy.js",
+    "generate-fixtures": "node scripts/generate-fixtures.js",
+    "pretest": "npm run generate-fixtures",
+    "precy:run:pipeline": "npm run generate-fixtures",
+    "precy:run:warmup": "npm run generate-fixtures",
+    "test": "npm run cy:run:warmup && npm run cy:run:pipeline"
+  },
+  "devDependencies": {
+    "cypress": "^15.14.1",
+    "cypress-file-upload": "^5.0.8",
+    "pdf-parse": "^2.4.5"
+  }
+}
